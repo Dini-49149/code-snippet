@@ -1,0 +1,12 @@
+[
+  {
+    "title": "LLM Structured Output",
+    "code": "from typing import Optional\r\n\r\nfrom pydantic import BaseModel, Field\r\n\r\n\r\n# Pydantic\r\nclass Joke(BaseModel):\r\n    \"\"\"Joke to tell user.\"\"\"\r\n\r\n    setup: str = Field(description=\"The setup of the joke\")\r\n    punchline: str = Field(description=\"The punchline to the joke\")\r\n    rating: Optional[int] = Field(\r\n        default=None, description=\"How funny the joke is, from 1 to 10\"\r\n    )\r\n\r\n\r\nstructured_llm = llm.with_structured_output(Joke)\r\n\r\nstructured_llm.invoke(\"Tell me a joke about cats\")",
+    "language": "python",
+    "description": "",
+    "tags": [],
+    "_id": "6b1391c2-3d8a-4034-a34c-ee43a82a7c73",
+    "createdAt": "2025-04-14T03:21:06.176Z",
+    "updatedAt": "2025-04-14T03:21:49.765Z"
+  }
+]

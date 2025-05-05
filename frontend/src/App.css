@@ -1,0 +1,800 @@
+/* Base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Folder tree styles */
+.folder-tree-container {
+  height: calc(100vh - 4rem); /* Subtract header height */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.folder-tree-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.folder-tree-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.folder-tree-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.folder-tree-container::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Glass morphism effect */
+.glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass {
+  background-color: rgba(17, 24, 39, 0.7);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hover effects */
+.hover-card {
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+}
+
+.hover-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Tag styles */
+.tag {
+  transition: all 0.2s ease-in-out;
+}
+
+.tag:hover {
+  transform: scale(1.05);
+}
+
+/* Button hover effects */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Notification animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Monaco editor customization */
+.monaco-editor {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Form field focus states */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #6366f1;
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  ring-color: #818cf8;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  .hover-card:hover {
+    transform: none;
+  }
+  
+  button:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode transitions */
+.dark {
+  color-scheme: dark;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .hover-card:hover {
+    transform: none;
+  }
+  
+  button:hover {
+    transform: none;
+  }
+}
+
+/* Transitions */
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+
+.transition-colors {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Responsive container */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Form inputs */
+input, textarea, select {
+  color: #333 !important;
+  background-color: white !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+select option {
+  background-color: white;
+  color: #333;
+}
+
+/* Add dark mode styles */
+
+:root {
+  --primary-bg: #f4f6fa;
+  --card-bg: #fff;
+  --primary-color: #2563eb;
+  --secondary-color: #14b8a6;
+  --border-color: #e5e7eb;
+  --shadow: 0 2px 8px rgba(0,0,0,0.04);
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: #f8f9fa;
+  --sidebar-bg: #f8f9fa;
+  --hover-color: #f0f0f0;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --tag-bg: #e1f5fe;
+  --tag-text: #0288d1;
+  --button-text: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --editor-bg: #ffffff;
+  --editor-text: #333333;
+}
+
+.dark-mode {
+  --primary-bg: #181c20;
+  --card-bg: #23272f;
+  --primary-color: #60a5fa;
+  --secondary-color: #14b8a6;
+  --border-color: #2d3748;
+  color: #e5e7eb;
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --header-bg: #1e1e1e;
+  --sidebar-bg: #1e1e1e;
+  --hover-color: #2a2a2a;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+  --tag-bg: #01579b;
+  --tag-text: #e1f5fe;
+  --button-text: #ffffff;
+  --input-bg: #333333;
+  --input-border: #444444;
+  --editor-bg: #1e1e1e;
+  --editor-text: #e0e0e0;
+}
+
+body {
+  background: var(--primary-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.header-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.icon-button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Apply dark mode styles to existing elements */
+.bg-white, .snippet-editor-container, .snippet-view-card {
+  background-color: var(--card-bg) !important;
+  border-radius: 1rem !important;
+  box-shadow: var(--shadow) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.bg-gray-50 {
+  background-color: var(--bg-color) !important;
+}
+
+.text-gray-800 {
+  color: var(--text-color) !important;
+}
+
+.text-gray-600 {
+  color: var(--text-color) !important;
+  opacity: 0.8;
+}
+
+.text-gray-500 {
+  color: var(--text-color) !important;
+  opacity: 0.7;
+}
+
+.text-gray-400 {
+  color: var(--text-color) !important;
+  opacity: 0.6;
+}
+
+.border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+input, select, textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--text-color) !important;
+  border-color: var(--input-border) !important;
+}
+
+.bg-blue-500, .bg-blue-600, .bg-blue-700 {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-blue-100 {
+  background-color: var(--tag-bg) !important;
+}
+
+.text-blue-800 {
+  color: var(--tag-text) !important;
+}
+
+/* Reset and simplify fullscreen styles */
+body.fullscreen-active {
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  position: fixed !important;
+}
+
+.fullscreen-editor {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: var(--bg-color) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Simple button styles that are always visible */
+.snippet-action-buttons {
+  display: flex !important;
+  gap: 0.5rem !important;
+}
+
+.action-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease-in-out !important;
+}
+
+.action-button.run-button {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+.action-button.edit-button {
+  background-color: #2196f3 !important;
+  color: white !important;
+}
+
+.action-button.close-button {
+  background-color: #e0e0e0 !important;
+  color: #333333 !important;
+}
+
+/* Basic editor container */
+.code-editor-container {
+  width: 100% !important;
+  height: 400px !important;
+  position: relative !important;
+}
+
+/* Remove complex selectors and styles that might conflict */
+.editor-container {
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* Basic styles below */
+.editor-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fullscreen-indicator {
+  font-size: 0.875rem;
+  font-weight: normal;
+  opacity: 0.7;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.exit-fullscreen-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.exit-fullscreen-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Ensure the control buttons remain visible */
+.space-y-4 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.space-x-2 {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Force visible buttons after fullscreen */
+.flex.justify-between.items-center {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fullscreen mode related */
+.exiting-fullscreen {
+  animation: flash 0.1s;
+}
+
+@keyframes flash {
+  0% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+/* Ensure action buttons are always visible */
+.flex.justify-between.items-center {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-bottom: 1rem !important;
+  position: relative;
+  z-index: 10;
+}
+
+.flex.space-x-2 button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix for buttons after fullscreen exit */
+.action-button, 
+button.action-button,
+.flex.space-x-2 button,
+.flex.space-x-2 .action-button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure buttons in controls remain visible */
+.control-buttons-container {
+  visibility: visible !important;
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+/* Focus styles for action buttons to improve visibility */
+.action-button:focus,
+.flex.space-x-2 button:focus {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+/* Fix for positioning after fullscreen */
+[data-was-fullscreen="true"] {
+  position: relative;
+  z-index: 5;
+  transition: all 0.3s ease-out;
+}
+
+/* Add a stronger selector to ensure it overrides other styles */
+.space-y-4 > .flex.justify-between.items-center {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix for control buttons visibility */
+.control-buttons-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin-bottom: 1rem !important;
+  position: relative !important;
+  z-index: 50 !important;
+  background-color: var(--card-bg) !important;
+  padding: 0.5rem 0 !important;
+}
+
+.snippet-action-buttons button {
+  display: flex !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-width: 60px !important;
+  justify-content: center !important;
+}
+
+.action-button.run-button {
+  background-color: var(--success-color) !important;
+  color: white !important;
+}
+
+.action-button.edit-button {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.action-button.close-button {
+  background-color: #e0e0e0 !important;
+  color: #333 !important;
+}
+
+.dark-mode .action-button.close-button {
+  background-color: #444 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Snippet editor container */
+.snippet-editor-container {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* Force the buttons to stay on top during transitions */
+body.fullscreen-active .control-buttons-container,
+.fullscreen-editor + .control-buttons-container {
+  position: fixed !important;
+  top: 80px !important;
+  left: 1rem !important;
+  right: 1rem !important;
+  z-index: 2000 !important;
+  background-color: var(--card-bg) !important;
+  padding: 0.5rem 1rem !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Editor container styles */
+.editor-container {
+  margin-top: 1rem;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.editor-container.fullscreen-mode {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+/* Make sure the snippet content doesn't appear above the fullscreen editor */
+.snippet-editor-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for Monaco editor not resizing correctly */
+.monaco-editor, 
+.monaco-editor .overflow-guard {
+  width: 100% !important;
+}
+
+/* When in fullscreen, adjust other content */
+body.fullscreen-active .app-container > *:not(.fullscreen-editor):not(.control-buttons-container) {
+  visibility: hidden;
+}
+
+/* Improve the alignment of the editor in fullscreen mode */
+.fullscreen-editor .monaco-editor {
+  position: absolute !important;
+  top: 60px !important; /* Height of the toolbar */
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: calc(100vh - 60px) !important;
+  width: 100vw !important;
+}
+
+/* Always keep exit buttons on top and visible */
+.fixed-exit-fullscreen-btn, 
+.exit-fullscreen-btn,
+.fullscreen-action-toolbar {
+  z-index: 10001 !important;
+  position: fixed !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Make sure fullscreen action toolbar has higher specificity */
+.fullscreen-action-toolbar button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 10010 !important;
+}
+
+/* Add exit fullscreen indicator animation */
+.fixed-exit-fullscreen-btn {
+  animation: pulse-opacity 2s infinite ease-in-out;
+}
+
+@keyframes pulse-opacity {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Fix the Monaco editor in fullscreen */
+.fullscreen-editor .monaco-editor,
+.fullscreen-editor .monaco-editor .overflow-guard,
+.fullscreen-editor .monaco-editor-background {
+  width: 100vw !important;
+  height: calc(100vh - 60px) !important;
+}
+
+/* Ensure buttons remain visible always during and after fullscreen */
+.action-button, 
+button.action-button,
+.control-buttons-container button,
+.snippet-action-buttons button,
+.flex.space-x-2 button {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 50 !important;
+  pointer-events: auto !important;
+}
+
+.snippet-editor-container, .snippet-view-card {
+  padding: 2rem !important;
+}
+
+button, .icon-button {
+  border-radius: 0.5rem !important;
+}
+
+input, textarea, select {
+  background: #f7fafc !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background: #23272f !important;
+  color: #e5e7eb !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.code-editor-card {
+  background: var(--card-bg) !important;
+  border-radius: 1rem !important;
+  box-shadow: var(--shadow) !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 1rem !important;
+  margin-top: 1rem;
+} 
